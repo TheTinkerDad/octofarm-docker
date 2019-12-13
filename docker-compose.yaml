@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  octofarm:
+    image: thetinkerdad/octofarm:latest
+    container_name: octofarm
+    ports:
+      - "80:80"
+    restart: always
