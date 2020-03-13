@@ -18,8 +18,7 @@ services:
     restart: always
 
   octofarm:
-    #image: thetinkerdad/octofarm:latest
-    build: .
+    image: thetinkerdad/octofarm:latest
     container_name: octofarm
     environment:
       MONGOHOST: mongodb
@@ -28,7 +27,5 @@ services:
     ports:
       - 4000:4000
     volumes:
-#      - ${PWD}/logs/production.log:/var/lib/octofarm/production.log
-#      - ${PWD}/logs/productionError.log:/var/lib/octofarm/productionError.log
       - ${PWD}/logs/additional/:/root/.npm/_logs/
     restart: always
