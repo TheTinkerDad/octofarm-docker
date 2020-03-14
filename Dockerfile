@@ -1,9 +1,8 @@
 FROM thetinkerdad/gitcloner:latest as builder
 
-RUN git clone https://github.com/NotExpectedYet/OctoFarm.git /git
-RUN cd /git && git checkout 1.1.1
+RUN git clone https://github.com/NotExpectedYet/OctoFarm.git /git && cd /git && git checkout 1.1.2
 
-FROM node:10-alpine
+FROM node:13-alpine
 
 ENV MONGOUSER root
 ENV MONGOPASS rootpassword
