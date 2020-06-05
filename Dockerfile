@@ -1,6 +1,6 @@
 FROM thetinkerdad/gitcloner:latest as builder
 
-RUN git clone https://github.com/NotExpectedYet/OctoFarm.git /git && cd /git && git checkout 1.1.4
+RUN git clone https://github.com/NotExpectedYet/OctoFarm.git /git && cd /git && git checkout 1.1.5
 
 FROM node:13-alpine
 
