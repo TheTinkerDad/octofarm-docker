@@ -1,0 +1,31 @@
+version: '2'
+
+volumes:
+  mongodb-data:
+
+services:
+
+  mongodb:
+    image: arm64v8/mongo:4.2.3-bionic
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_DATABASE: octofarm
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-data:/data/db
+    restart: always
+
+  octofarm:
+    image: thetinkerdad/octofarm:arm64-1.1.4
+    container_name: octofarm
+    environment:
+      MONGOHOST: mongodb
+      MONGOUSER: root
+      MONGOPASS: rootpassword
+    ports:
+      - 4000:4000
+    volumes:
+      - ${PWD}/logs/:/root/.npm/_logs/
+    restart: always
